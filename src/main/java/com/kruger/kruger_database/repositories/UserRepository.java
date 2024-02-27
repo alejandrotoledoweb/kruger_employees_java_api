@@ -1,8 +1,11 @@
 package com.kruger.kruger_database.repositories;
 
-import com.kruger.kruger_database.models.Employee;
-import com.kruger.kruger_database.models.User;
+import com.kruger.kruger_database.models.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
+    UserEntity findByUsername(String username);
+    Boolean existsByUsername(String username);
 }

@@ -38,6 +38,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/api/auth/**").permitAll()
+                .antMatchers("/api/employee-detail/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/employee").authenticated()
                 .anyRequest().authenticated()
                 .and()

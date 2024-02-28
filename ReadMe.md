@@ -1,4 +1,4 @@
-Kruger Employees API Documentation
+# Kruger Employees API Documentation
 
 This document outlines the usage of the Kruger Employees API endpoints. The API is designed to manage employee records, including creating employees, managing employee details, and user authentication.
 Base URL

@@ -42,7 +42,7 @@ public class AuthController {
         this.jwtGenerator = jwtGenerator;
     }
 
-    @CrossOrigin(origins = "http://localhost:5173")
+    @CrossOrigin(origins = "*")
     @PostMapping("/login")
     public ResponseEntity<AuthResponseDto> login(@RequestBody LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(
@@ -53,7 +53,12 @@ public class AuthController {
         String token = jwtGenerator.generateToken(authentication);
         UserEntity user = userRepository.findByUsername(loginDto.getUsername());
         Long userId = user.getId();
-        return new ResponseEntity<>(new AuthResponseDto(token, userId), HttpStatus.OK);
+        Long employeeDetailsId = user.getEmployee().getEmployeeDetail().getId();
+        String role = user.getRoles().stream()
+                .findFirst()
+                .map(Role::getName).orElse(null);
+        return new ResponseEntity<>(new AuthResponseDto(token, userId,employeeDetailsId
+                ,role), HttpStatus.OK);
     }
 
     @CrossOrigin("*")

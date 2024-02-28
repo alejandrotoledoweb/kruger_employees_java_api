@@ -1,22 +1,32 @@
 # Kruger Employees API Documentation
 
+![](./ERD diagram.png)
+
 This document outlines the usage of the Kruger Employees API endpoints. The API is designed to manage employee records, including creating employees, managing employee details, and user authentication.
 Base URL
 
+Create the database for the Kruger Employees API. Replace kruger_employees with your desired database name if you prefer a different one:
+
+    CREATE DATABASE kruger_employees;
+
+Credentials for admin user:
+    
+    username: admin
+    password: password
+
 All URLs referenced in the documentation have the following base:
 
-bash
 
-http://localhost:8080/api
+    http://localhost:8080/api
 
 The base URL will change depending on the environment where the API is deployed.
 Authentication
 
 Several endpoints require a valid JWT token provided in the request header:
 
-makefile
 
-Authorization: Bearer YOUR_JWT_TOKEN
+
+    Authorization: Bearer YOUR_JWT_TOKEN
 
 Login
 

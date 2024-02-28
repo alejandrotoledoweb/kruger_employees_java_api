@@ -8,6 +8,7 @@ import com.kruger.kruger_database.models.UserEntity;
 import com.kruger.kruger_database.repositories.RoleRepository;
 import com.kruger.kruger_database.repositories.UserRepository;
 import com.kruger.kruger_database.security.JWTGenerator;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,6 +43,7 @@ public class AuthController {
         this.jwtGenerator = jwtGenerator;
     }
 
+    @Tag(name = "User Login", description = "end point for login user")
     @CrossOrigin(origins = "*")
     @PostMapping("/login")
     public ResponseEntity<AuthResponseDto> login(@RequestBody LoginDto loginDto){

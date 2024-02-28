@@ -3,6 +3,7 @@ package com.kruger.kruger_database.controllers;
 import com.kruger.kruger_database.dto.EmployeeCreationDTO;
 import com.kruger.kruger_database.repositories.UserRepository;
 import com.kruger.kruger_database.services.EmployeeService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,8 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+    @Tag(name = "Employee Creation", description = "end point for admin users to create" +
+            " employees")
     @CrossOrigin("*")
     @PostMapping("/employee")
     @ResponseStatus(HttpStatus.CREATED)

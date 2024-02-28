@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class EmployeeDetailController {
@@ -18,6 +19,7 @@ public class EmployeeDetailController {
         this.employeeDetailService = employeeDetailService;
     }
 
+    @CrossOrigin("*")
     @GetMapping ("/employee-detail")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<EmployeeDetailDto> getEmployeeDetail(@RequestBody GetEmployeeDetailDto getEmployeeDetailDto) {
@@ -26,6 +28,7 @@ public class EmployeeDetailController {
                 HttpStatus.CREATED);
     }
 
+    @CrossOrigin("*")
     @PutMapping("/employee-detail/update")
     public ResponseEntity<EmployeeDetailDto> updateEmployeeDetail(@RequestBody EmployeeDetailDto employeeDetailDto) {
         EmployeeDetailDto updatedEmployeeDetailDto = employeeDetailService.updateEmployeeDetail(employeeDetailDto);

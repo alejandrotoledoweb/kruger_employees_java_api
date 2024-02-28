@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Random;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class EmployeeController {
@@ -23,6 +24,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
+    @CrossOrigin("*")
     @PostMapping("/employee")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<EmployeeCreationDTO> createEmployee(@RequestBody EmployeeCreationDTO employeeCreationDTO) {

@@ -33,7 +33,14 @@ Login
     }
 
     Responses:
-        200 OK: Successfully authenticated. Returns a JWT token.
+        status: 200 OK:
+        {
+            "accessToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbGVqYW5kcm90IiwiaWF0IjoxNzA5MTM2MDQ3LCJleHAiOjE3MDkxMzYxMTd9.SD2vPbUUQCCBAoD0qhRz0P4c8sbsec_mpCpvtvP-CCjQYjCqmZSud-vghkLxceZ31f0OJcNJoaevXDoJ2-_M3w",
+            "tokenType": "Bearer ",
+            "userId": 13,
+            "employeeDetailId": 6,
+            "role": "EMPLOYEE"
+        }
 
 
 Employee Management
@@ -56,25 +63,25 @@ Employee Management
     }
 
     Responses:
-        200 OK
+        status: 200 OK
         {
-        "id": 10,
-        "names": "alejandro",
-        "lastNames": "toledo",
-        "email": "atoledofr@gmail.com",
-        "cedula": "3377449927",
-        "employeeDetail": {
             "id": 10,
-            "fechaNacimiento": null,
-            "direccionDomicilio": null,
-            "telefonoMovil": null,
-            "vacunado": false,
-            "tipoVacuna": null,
-            "fechaVacunacion": null,
-            "numeroDosis": null
-        },
-        "username": "alejandrot3",
-        "password": "6WsouSydro"
+            "names": "alejandro",
+            "lastNames": "toledo",
+            "email": "atoledofr@gmail.com",
+            "cedula": "3377449927",
+            "employeeDetail": {
+                "id": 10,
+                "fechaNacimiento": null,
+                "direccionDomicilio": null,
+                "telefonoMovil": null,
+                "vacunado": false,
+                "tipoVacuna": null,
+                "fechaVacunacion": null,
+                "numeroDosis": null
+            },
+            "username": "alejandrot3",
+            "password": "6WsouSydro"
         }
 
 ### Update Employee Detail
@@ -87,17 +94,27 @@ Employee Management
     json
 
     {
-    "userId": 13,
-    "id": 6,
-    "fechaNacimiento": "1990-01-01",
-    "direccionDomicilio": "123 Main St",
-    "telefonoMovil": "555-1234",
-    "vacunado": true,
-    "tipoVacuna": "Pfizer",
-    "fechaVacunacion": "2021-04-15",
-    "numeroDosis": 2
+        "userId": 13,
+        "id": 6,
+        "fechaNacimiento": "1990-01-01",
+        "direccionDomicilio": "123 Main St",
+        "telefonoMovil": "555-1234",
+        "vacunado": true,
+        "tipoVacuna": "Pfizer",
+        "fechaVacunacion": "2021-04-15",
+        "numeroDosis": 2
     }
 
 Responses:
 
-    200 OK: Employee details successfully updated.
+    status: 200 OK:
+    {
+        "id": 6,
+        "fechaNacimiento": "2000-02-09",
+        "direccionDomicilio": "Quito",
+        "telefonoMovil": "0992601505",
+        "vacunado": true,
+        "tipoVacuna": "Pfizer",
+        "fechaVacunacion": "2024-02-02",
+        "numeroDosis": 2
+    }
